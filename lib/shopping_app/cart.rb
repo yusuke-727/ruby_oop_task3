@@ -5,8 +5,7 @@ class Cart
 include ItemManager
 include Ownable
 
-attr_accessor :owner
-attr_reader :items
+attr_reader :owner, :items
 
 def initialize(owner)
 @owner = owner
@@ -28,7 +27,7 @@ def total_amount
 end
 
 def check_out
-return if owner.wallet.balance < total_amount
+return if @owner.wallet.balance < total_amount
 # ## 要件
 # - カートの中身（Cart#items）のすべてのアイテムの購入金額が、カートのオーナーのウォレットからアイテムのオーナーのウォレットに移されること。
 # - カートの中身（Cart#items）のすべてのアイテムのオーナー権限が、カートのオーナーに移されること。
