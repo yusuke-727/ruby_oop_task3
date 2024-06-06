@@ -5,6 +5,9 @@ class Cart
 include ItemManager
 include Ownable
 
+attr_accessor :owner
+attr_reader :items
+
 def initialize(owner)
 @owner = owner
 @items = []
